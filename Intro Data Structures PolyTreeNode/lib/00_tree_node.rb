@@ -1,4 +1,5 @@
 class PolyTreeNode
+
     attr_accessor :value,:parent,:children
     def initialize(value)
         @value=value
@@ -25,8 +26,19 @@ class PolyTreeNode
     end
 
     def remove_child(node)
-        raise "thats is not my child!" if !self.children.include?(node)
+        raise 'I have no children!' if self.children.empty?
+        raise "thats is not my child!" if !self.children.include?(node) 
         node.parent=(nil)
 
     end
+
+
+    def dfs(target)
+
+    end
+
+    def bfs(target)
+
+    end
+
 end
