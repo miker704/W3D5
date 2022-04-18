@@ -68,31 +68,17 @@ class PolyTreeNode
 
     # queue
     def bfs(target)
-        # queue=[self]
-        # queue.each do |node|
-        #     result=queue.shift()
-        #     return result if result == target
-        #     queue.push(node.children)
-        # end
-        queue=[self]
-        queue.each do |node|
-            # if(queue.first.value==target)
-            #     return queue.first
-            # else
-            #     result = queue.shift()
-                
-            #     queue.unshift(result.children)
-            # end
-
-            result = queue.shift()
-            if(result.value==target)
-                return result
-            else
-                 queue.unshift(result.children)
-            end
+         
+         queue=[self]
+        while !queue.empty?
+            result=queue.shift
+            return result if result.value==target
+            queue.concat(result.children)
 
         end
-        return nil
-    end
+
+            return nil
+        end
 
 end
+
